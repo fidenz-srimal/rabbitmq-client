@@ -21,10 +21,9 @@ class DirectRpcClient extends Channel implements IDirectRpcClient
     private $bindingKey;
 
     /**
-     *
-     * {@inheritdoc}
-     *
-     * @see \App\Contracts\Rabbitmq\IDirectRpcClient::init()
+     * 
+     * {@inheritDoc}
+     * @see \Sogarkov\RabbitmqClient\Contracts\IDirectRpcClient::init()
      */
     public function init(string $queueName, string $exchangeName, string $bindingKey)
     {
@@ -44,10 +43,9 @@ class DirectRpcClient extends Channel implements IDirectRpcClient
     }
 
     /**
-     *
-     * {@inheritdoc}
-     *
-     * @see \App\Contracts\Rabbitmq\IDirectRpcClient::call()
+     * 
+     * {@inheritDoc}
+     * @see \Sogarkov\RabbitmqClient\Contracts\IDirectRpcClient::call()
      */
     public function call(string $payload)
     {

@@ -18,10 +18,9 @@ class DirectRpcServer extends Channel implements IDirectRpcServer
     private $callback;
     
     /**
-     *
-     * {@inheritdoc}
-     *
-     * @see \App\Contracts\Rabbitmq\IDirectRpcServer::start()
+     * 
+     * {@inheritDoc}
+     * @see \Sogarkov\RabbitmqClient\Contracts\IDirectRpcServer::start()
      */
     
     public function start(string $queueName, string $exchangeName, string $bindingKey, callable $callback) {

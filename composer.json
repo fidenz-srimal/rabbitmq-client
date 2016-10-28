@@ -1,7 +1,7 @@
 {
     "name": "ose1955/rabbitmq-client",
-    "description": "Asyncronous and DirectRpc interfaces for interacting with RammitMQ using amqp.",
-    "keywords": ["rabbitmq", "amqp"],
+    "description": "Asyncronous and DirectRpc interfaces for interacting with RabbitMQ using AMQP.",
+    "keywords": ["rabbitmq", "amqp", "laravel", "lumen"],
     "license": "MIT",
      "authors": [
         {

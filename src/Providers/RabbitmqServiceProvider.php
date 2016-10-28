@@ -38,7 +38,7 @@ class RabbitmqServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('App\Contracts\Rabbitmq\IConnector', function ($app) {
+        $this->app->singleton('Sogarkov\RabbitmqClient\Contracts\IConnector', function ($app) {
             return new Connector(config('rabbitmq'));
         }); 
     }
@@ -49,7 +49,7 @@ class RabbitmqServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return ['App\Contracts\Rabbitmq\IConnector'];
+        return ['Sogarkov\RabbitmqClient\Contracts\IConnector'];
     }
 
 }

@@ -31,10 +31,9 @@ class Connector implements IConnector
     }
 
     /**
-     *
-     * {@inheritdoc}
-     *
-     * @see \App\Contracts\Rabbitmq\IConnector::getConnection()
+     * 
+     * {@inheritDoc}
+     * @see \Sogarkov\RabbitmqClient\Contracts\IConnector::getConnection()
      */
     public function getConnection()
     {

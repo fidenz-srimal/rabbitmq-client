@@ -21,7 +21,7 @@ class Async extends Channel implements IAsync
     /**
      * 
      * {@inheritDoc}
-     * @see \App\Contracts\Rabbitmq\IAsync::push()
+     * @see \Sogarkov\RabbitmqClient\Contracts\IAsync::push()
      */
     public function push(string $payload, string $exchangeName = null, string $routingKey = null)
     {
@@ -36,7 +36,7 @@ class Async extends Channel implements IAsync
     /**
      * 
      * {@inheritDoc}
-     * @see \App\Contracts\Rabbitmq\IAsync::consume()
+     * @see \Sogarkov\RabbitmqClient\Contracts\IAsync::consume()
      */
     public function consume(string $queueName, $callback)
     {
@@ -76,7 +76,7 @@ class Async extends Channel implements IAsync
     /**
      * 
      * {@inheritDoc}
-     * @see \App\Contracts\Rabbitmq\IAsync::uploadDirectMessage()
+     * @see \Sogarkov\RabbitmqClient\Contracts\IAsync::uploadDirectMessage()
      */
     public function uploadDirectMessage(string $payload, string $queueName, string $exchangeName, string $bindingKey)
     {
@@ -89,7 +89,7 @@ class Async extends Channel implements IAsync
     /**
      * 
      * {@inheritDoc}
-     * @see \App\Contracts\Rabbitmq\IAsync::listenQueue()
+     * @see \Sogarkov\RabbitmqClient\Contracts\IAsync::listenQueue()
      */
     public function listenQueue(string $queueName, string $exchangeName, string $bindingKey, $callback)
     {

@@ -20,10 +20,10 @@ class Channel implements IChannel
 
     /**
      * Constructor
-     * @param App\WebServices\Rabbitmq\Connector $connector
+     * @param Connector $connector
      * @param array $options options to modify default Config
      */
-    public function __construct(\App\WebServices\Rabbitmq\Connector $connector, array $options=[])
+    public function __construct(Connector $connector, array $options=[])
     {
         $connection = $connector->getConnection();
         $this->channel = $connection->channel($connection->get_free_channel_id());
@@ -31,10 +31,9 @@ class Channel implements IChannel
     }
 
     /**
-     *
-     * {@inheritdoc}
-     *
-     * @see \App\Contracts\Rabbitmq\IChannel::declareQueue()
+     * 
+     * {@inheritDoc}
+     * @see \Sogarkov\RabbitmqClient\Contracts\IChannel::declareQueue()
      */
     public function declareQueue(string $name)
     {
@@ -47,10 +46,9 @@ class Channel implements IChannel
     }
 
     /**
-     *
-     * {@inheritdoc}
-     *
-     * @see \App\Contracts\Rabbitmq\IChannel::declareExchange()
+     * 
+     * {@inheritDoc}
+     * @see \Sogarkov\RabbitmqClient\Contracts\IChannel::declareExchange()
      */
     public function declareExchange(string $type = null, string $name = null)
     {
@@ -61,10 +59,9 @@ class Channel implements IChannel
     }
 
     /**
-     *
-     * {@inheritdoc}
-     *
-     * @see \App\Contracts\Rabbitmq\IChannel::bindQueue()
+     * 
+     * {@inheritDoc}
+     * @see \Sogarkov\RabbitmqClient\Contracts\IChannel::bindQueue()
      */
     public function bindQueue(string $queueName, string $exchangeName = null, string $bindingKey = null)
     {
