@@ -1,0 +1,21 @@
+{
+    "name": "ose1955/rabbitmq-client",
+    "description": "Asyncronous and DirectRpc interfaces for interacting with RammitMQ using amqp.",
+    "keywords": ["rabbitmq", "amqp"],
+    "license": "MIT",
+     "authors": [
+        {
+            "name": "Sergey Ogarkov",
+            "email": "sogarkov@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "php-amqplib/php-amqplib": "^2.6"
+    },
+   "autoload": {
+        "psr-4": {
+            "Sogarkov\\RabbitmqClient\\": "src/"
+        }
+    }
+}
