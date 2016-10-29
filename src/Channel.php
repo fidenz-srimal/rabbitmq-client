@@ -27,7 +27,7 @@ class Channel implements IChannel
     {
         $connection = $connector->getConnection();
         $this->channel = $connection->channel($connection->get_free_channel_id());
-        $this->config = array_merge(config('rabbitmq'), $options);
+        $this->config = array_merge(config('rabbitmq_client'), $options);
     }
 
     /**

@@ -14,6 +14,7 @@ use Sogarkov\RabbitmqClient\Connector;
 
 class RabbitmqServiceProvider extends ServiceProvider
 {
+    private $config_path;
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -28,7 +29,9 @@ class RabbitmqServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->publishes([
+            $this->config_path => config_path('rabbitmq_client.php'),
+        ]);
     }
 
     /**
@@ -38,8 +41,11 @@ class RabbitmqServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->config_path = __DIR__ .'/../../config/rabbitmq_client.php';
+        $this->mergeConfigFrom($this->config_path, 'rabbitmq_client');
+        
         $this->app->singleton('Sogarkov\RabbitmqClient\Contracts\IConnector', function ($app) {
-            return new Connector(config('rabbitmq'));
+            return new Connector(config('rabbitmq_client'));
         }); 
     }
     /**
