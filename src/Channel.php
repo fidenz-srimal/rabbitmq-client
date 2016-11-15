@@ -10,6 +10,7 @@
 namespace Sogarkov\RabbitmqClient;
 
 use Sogarkov\RabbitmqClient\Contracts\IChannel;
+use Sogarkov\RabbitmqClient\Contracts\IConnector;
 
 class Channel implements IChannel
 {
@@ -20,10 +21,10 @@ class Channel implements IChannel
 
     /**
      * Constructor
-     * @param Connector $connector
+     * @param IConnector $connector
      * @param array $options options to modify default Config
      */
-    public function __construct(Connector $connector, array $options=[])
+    public function __construct(IConnector $connector, array $options=[])
     {
         $connection = $connector->getConnection();
         $this->channel = $connection->channel($connection->get_free_channel_id());

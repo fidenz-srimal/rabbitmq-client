@@ -41,12 +41,15 @@ return [
     'message_expiration' => 0,
     // the RPC server response timeout, s (0 - unlimited)
     'rpc_timeout' => 0,
+    // number of requests the server should process and then shuts down (0 - unlimited)
+    'rpc_server_callslimit' => 0,
     /**
      *  Consume wait timeout, s. If no responce received then select is interrupted and
      *  wait makes a loop to refresh its state.
      */
     'wait_timeout' => 0,
     'wait_non_blocking' => false, 
+    
     
 
 ];

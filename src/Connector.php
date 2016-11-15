@@ -25,26 +25,33 @@ class Connector implements IConnector
      *
      * @param array $config            
      */
-    public function __construct(array $config)
-    {
+    public function __construct(array $config) {
         $this->config = $config;
     }
 
     /**
-     * 
-     * {@inheritDoc}
+     *
+     * {@inheritdoc}
+     *
      * @see \Sogarkov\RabbitmqClient\Contracts\IConnector::getConnection()
      */
-    public function getConnection()
-    {
+    public function getConnection() {
         if (! isset($this->connection)) {
-            $this->connection = new AMQPStreamConnection(
-                $this->config['host'], 
-                $this->config['port'], 
-                $this->config['login'], 
-                $this->config['password'], 
+            $this->connection = new AMQPStreamConnection($this->config['host'], 
+                $this->config['port'], $this->config['login'], $this->config['password'], 
                 $this->config['vhost']);
         }
         return $this->connection;
+    }
+
+    /**
+     *
+     * {@inheritdoc}
+     *
+     * @see \Sogarkov\RabbitmqClient\Contracts\IConnector::setCredentials()
+     */
+    public function setCredentials(string $login, string $password) {
+        $this->config['login'] = $login;
+        $this->config['password'] = $password;
     }
 }

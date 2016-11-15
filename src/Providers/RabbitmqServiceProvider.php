@@ -29,8 +29,16 @@ class RabbitmqServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Laravel
+        if(function_exists('config_path')) {
+            $path = config_path('rabbitmq_client.php');
+        }
+        // Lumen
+        else {
+            $path = $this->app->getConfigurationPath('rabbitmq_client');
+        }
         $this->publishes([
-            $this->config_path => config_path('rabbitmq_client.php'),
+            $this->config_path => $path,
         ]);
     }
 
@@ -44,7 +52,7 @@ class RabbitmqServiceProvider extends ServiceProvider
         $this->config_path = __DIR__ .'/../../config/rabbitmq_client.php';
         $this->mergeConfigFrom($this->config_path, 'rabbitmq_client');
         
-        $this->app->singleton('Sogarkov\RabbitmqClient\Contracts\IConnector', function ($app) {
+        $this->app->singleton('Sogarkov\RabbitmqClient\Contracts\IConnector', function () {
             return new Connector(config('rabbitmq_client'));
         }); 
     }
