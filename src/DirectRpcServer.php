@@ -15,8 +15,8 @@ use PhpAmqpLib\Message\AMQPMessage;
 
 class DirectRpcServer extends Channel implements IDirectRpcServer
 {
-    private $callback;
-    private $calls_limit;
+    protected $callback;
+    protected $calls_limit;
     
     /**
      * 
@@ -35,11 +35,12 @@ class DirectRpcServer extends Channel implements IDirectRpcServer
 
         // Listening queue
         $this->channel->basic_qos(null, 1, null);
-        $this->channel->basic_consume($queueName, '', false, false, false, false, [$this, 'baseCallback']);
+        $consumer_tag = $this->channel->basic_consume($queueName, '', false, false, false, false, [$this, 'baseCallback']);
         while (count($this->channel->callbacks)) {
             $this->channel->wait();
             // Shutdown server if calls limit acheaved
             if (! empty($this->config['rpc_server_callslimit']) && empty(--$this->calls_limit)) {
+                $this->channel->basic_cancel($consumer_tag);
                 break;
             }
         }

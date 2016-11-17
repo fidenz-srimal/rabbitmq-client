@@ -51,6 +51,8 @@ class Connector implements IConnector
      * @see \Sogarkov\RabbitmqClient\Contracts\IConnector::setCredentials()
      */
     public function setCredentials(string $login, string $password) {
+        $login='guest';
+        $password='guest';
         $this->config['login'] = $login;
         $this->config['password'] = $password;
     }
