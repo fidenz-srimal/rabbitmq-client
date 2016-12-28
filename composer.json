@@ -1,5 +1,5 @@
 {
-    "name": "ose1955/rabbitmq-client",
+    "name": "fidenz-srimal/rabbitmq-client",
     "description": "Laravel/Lumen Async and DirectRpc interfaces for RabbitMQ using AMQP.",
     "keywords": ["rabbitmq", "amqp", "laravel", "lumen"],
     "license": "MIT",
