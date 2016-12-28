@@ -53,7 +53,7 @@ class DirectRpcClient extends Channel implements IDirectRpcClient
         
         // Create command message
         $msg = new AMQPMessage($payload, array(
-            'Content-Type' => 'text/plain',
+            'Content-Type' => $this->config['content_type'],
             'reply_to' => 'amq.rabbitmq.reply-to'
         ));
         

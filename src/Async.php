@@ -26,7 +26,7 @@ class Async extends Channel implements IAsync
     public function push(string $payload, string $exchangeName = null, string $routingKey = null)
     {
         $headers = array(
-            'Content-Type' => 'text/plain',
+            'Content-Type' => $this->config['content_type'],
             'delivery_mode' => AMQPMessage::DELIVERY_MODE_PERSISTENT
         );
         $message = new AMQPMessage($payload, $headers);

@@ -39,6 +39,8 @@ return [
     
     // The Message time to live in queue, s (0 - unlimited)
     'message_expiration' => 0,
+    // The AMQPMessage Content-Type
+    'content_type' => 'text/plain',
     // the RPC server response timeout, s (0 - unlimited)
     'rpc_timeout' => 0,
     // number of requests the server should process and then shuts down (0 - unlimited)
