@@ -2,6 +2,7 @@
 namespace Sogarkov\RabbitmqClient\Wrapper;
 
 use Sogarkov\RabbitmqClient\Async;
+use Sogarkov\RabbitmqClient\Connector;
 use Exception;
 
 abstract class RabbitMQAsyncBase
@@ -21,9 +22,6 @@ abstract class RabbitMQAsyncBase
 
 	public function setConnector()
 	{
-        $this->config_path = __DIR__ .'/../../config/rabbitmq_client.php';
-        $this->mergeConfigFrom($this->config_path, 'rabbitmq_client');
-
 		$this->connector = new Connector(config('rabbitmq_client'));
 	}
 

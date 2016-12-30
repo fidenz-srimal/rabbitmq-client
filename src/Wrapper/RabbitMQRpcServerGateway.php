@@ -3,6 +3,7 @@ namespace Sogarkov\RabbitmqClient\Wrapper;
 
 use Sogarkov\RabbitmqClient\Contracts\RabbitMQRpcServerGatewayInterface;
 use Sogarkov\RabbitmqClient\DirectRpcServer;
+use Sogarkov\RabbitmqClient\Connector;
 use Exception;
 
 class RabbitMQRpcServerGateway implements RabbitMQRpcServerGatewayInterface
@@ -29,9 +30,6 @@ class RabbitMQRpcServerGateway implements RabbitMQRpcServerGatewayInterface
 
 	public function setConnector()
 	{
-        $this->config_path = __DIR__ .'/../../config/rabbitmq_client.php';
-        $this->mergeConfigFrom($this->config_path, 'rabbitmq_client');
-
 		$this->connector = new Connector(config('rabbitmq_client'));
 	}
 
